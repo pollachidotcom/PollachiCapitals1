@@ -59,10 +59,10 @@
 
   <!-- App Header -->
   <header class="border-b border-black">
-    <div class="max-w-5xl mx-auto px-4 py-4 flex flex-wrap items-center justify-between gap-3">
+    <div class="max-w-5xl mx-auto px-8 py-8 flex flex-wrap items-center justify-between gap-3">
       <div class="flex items-center space-x-3">
         <div class="w-8 h-8 bg-black text-white flex items-center justify-center font-bold text-sm tracking-wider">
-          PC
+          Growth
         </div>
         <div>
           <h1 class="text-base font-bold tracking-tight uppercase">Pollachi Capitals</h1>
@@ -108,10 +108,10 @@
           Partner Portal
         </div>
         <h2 class="text-xl sm:text-2xl font-bold tracking-tight">
-          Dear partner, Pollachi Capitals welcomes you to the journey of Wealth Creation.
+          Dear partner, Pollachi Capitals welcomes you to the journey of wealth creation.
         </h2>
         <p class="text-sm text-neutral-600">
-          Your portfolio data is synchronized directly with an automated 5-minute background refresh. Select your Client Code and enter your 4-digit PIN below to view your holdings.
+          Your portfolio data is synchronized directly from your Google Sheet with an automated 5-minute background refresh. Select your Client Code and enter your 4-digit PIN below to view your holdings.
         </p>
       </div>
     </section>
@@ -159,7 +159,7 @@
             <option value="018 PRAKASH">018 PRAKASH</option>
             <option value="019 SATHISH USA">019 SATHISH USA</option>
             <option value="020 SHABARLA">020 SHABARLA</option>
-            <option value="ALL">Master View (All Clients Consolidated)</option>
+            <option value="ALL">Partner Master View (All Clients Consolidated)</option>
           </select>
         </div>
 
@@ -489,546 +489,547 @@
   }
 };
 
+
     // Exact Google Sheet Data from user's "Pollachi Capitals" Sheet
     const initialSheetData = [
   {
-    "clientCode": "011 SANTHIYA",
-    "symbol": "CHOLAHLDNG",
-    "quantity": 17.0,
-    "price": 1354.0,
-    "ltp": 1285.9,
-    "investment": 23018.0,
-    "current": 21860.0,
-    "m2m": -1157.7,
-    "m2mPct": -5.03
-  },
-  {
-    "clientCode": "007 SANTHANA",
-    "symbol": "KNRCON",
-    "quantity": 175.0,
-    "price": 110.83,
-    "ltp": 98.48,
-    "investment": 19395.0,
-    "current": 17234.0,
-    "m2m": -2161.0,
-    "m2mPct": -11.14
-  },
-  {
     "clientCode": "016 SATHIS INC",
-    "symbol": "JSWCEMENT",
-    "quantity": 81.0,
-    "price": 130.8,
-    "ltp": 116.83,
-    "investment": 10595.0,
-    "current": 9463.0,
-    "m2m": -1131.57,
-    "m2mPct": -10.68
-  },
-  {
-    "clientCode": "019 SATHISH USA",
-    "symbol": "SAIL",
-    "quantity": 500.0,
-    "price": 172.5,
-    "ltp": 164.52,
-    "investment": 86250.0,
-    "current": 82260.0,
-    "m2m": -3990.0,
-    "m2mPct": -4.63
-  },
-  {
-    "clientCode": "011 SANTHIYA",
-    "symbol": "KNRCON",
-    "quantity": 240.0,
-    "price": 111.87,
-    "ltp": 98.48,
-    "investment": 26849.0,
-    "current": 23635.0,
-    "m2m": -3213.6,
-    "m2mPct": -11.97
-  },
-  {
-    "clientCode": "006 RAJAGOPAL",
-    "symbol": "JSWCEMENT",
-    "quantity": 150.0,
-    "price": 130.4,
-    "ltp": 116.83,
-    "investment": 19560.0,
-    "current": 17525.0,
-    "m2m": -2035.5,
-    "m2mPct": -10.41
-  },
-  {
-    "clientCode": "017 Sasi Kumar",
-    "symbol": "M&M",
-    "quantity": 12.0,
-    "price": 3093.0,
-    "ltp": 2823.6,
-    "investment": 37116.0,
-    "current": 33883.0,
-    "m2m": -3232.8,
-    "m2mPct": -8.71
-  },
-  {
-    "clientCode": "001 PolCap",
-    "symbol": "M&M",
-    "quantity": 50.0,
-    "price": 2912.0,
-    "ltp": 2823.6,
-    "investment": 145600.0,
-    "current": 141180.0,
-    "m2m": -4420.0,
-    "m2mPct": -3.04
-  },
-  {
-    "clientCode": "018 PRAKASH",
-    "symbol": "CANBK",
-    "quantity": 443.0,
-    "price": 126.69,
-    "ltp": 116.14,
-    "investment": 56124.0,
-    "current": 51450.0,
-    "m2m": -4673.65,
-    "m2mPct": -8.33
-  },
-  {
-    "clientCode": "014 NANDHAKUMAR",
-    "symbol": "CEATLTD",
-    "quantity": 10.0,
-    "price": 3540.0,
-    "ltp": 3070.0,
-    "investment": 35400.0,
-    "current": 30700.0,
-    "m2m": -4700.0,
-    "m2mPct": -13.28
-  },
-  {
-    "clientCode": "008 ARUNA",
-    "symbol": "CHOLAHLDNG",
-    "quantity": 23.0,
-    "price": 1462.0,
-    "ltp": 1285.9,
-    "investment": 33626.0,
-    "current": 29576.0,
-    "m2m": -4050.3,
-    "m2mPct": -12.05
-  },
-  {
-    "clientCode": "015 VENKATESH",
-    "symbol": "M&M",
-    "quantity": 21.0,
-    "price": 3025.0,
-    "ltp": 2823.6,
-    "investment": 63525.0,
-    "current": 59296.0,
-    "m2m": -4229.4,
-    "m2mPct": -6.66
-  },
-  {
-    "clientCode": "003 SANKAR",
-    "symbol": "CEATLTD",
-    "quantity": 22.0,
-    "price": 3378.5,
-    "ltp": 3070.0,
-    "investment": 74327.0,
-    "current": 67540.0,
-    "m2m": -6787.0,
-    "m2mPct": -9.13
+    "symbol": "ACC",
+    "quantity": 30.0,
+    "price": 1350.6,
+    "ltp": 1163.4,
+    "m2m": -5616.0,
+    "m2mPct": -13.86,
+    "investment": 40518.0,
+    "current": 34902.0
   },
   {
     "clientCode": "005 SENTHIL",
     "symbol": "ASHOKLEY",
     "quantity": 277.0,
     "price": 161.01,
-    "ltp": 145.68,
+    "ltp": 144.95,
+    "m2m": -4448.62,
+    "m2mPct": -9.97,
     "investment": 44600.0,
-    "current": 40353.0,
-    "m2m": -4246.41,
-    "m2mPct": -9.52
-  },
-  {
-    "clientCode": "006 RAJAGOPAL",
-    "symbol": "CHOLAHLDNG",
-    "quantity": 20.0,
-    "price": 1532.5,
-    "ltp": 1285.9,
-    "investment": 30650.0,
-    "current": 25718.0,
-    "m2m": -4932.0,
-    "m2mPct": -16.09
-  },
-  {
-    "clientCode": "017 Sasi Kumar",
-    "symbol": "JSWCEMENT",
-    "quantity": 375.0,
-    "price": 126.7,
-    "ltp": 116.83,
-    "investment": 47513.0,
-    "current": 43811.0,
-    "m2m": -3701.25,
-    "m2mPct": -7.79
-  },
-  {
-    "clientCode": "016 SATHIS INC",
-    "symbol": "ACC",
-    "quantity": 30.0,
-    "price": 1350.6,
-    "ltp": 1162.0,
-    "investment": 40518.0,
-    "current": 34860.0,
-    "m2m": -5658.0,
-    "m2mPct": -13.96
-  },
-  {
-    "clientCode": "017 Sasi Kumar",
-    "symbol": "GRSE",
-    "quantity": 10.0,
-    "price": 2500.0,
-    "ltp": 1872.0,
-    "investment": 25000.0,
-    "current": 18720.0,
-    "m2m": -6280.0,
-    "m2mPct": -25.12
-  },
-  {
-    "clientCode": "005 SENTHIL",
-    "symbol": "HINDALCO",
-    "quantity": 60.0,
-    "price": 994.2,
-    "ltp": 870.85,
-    "investment": 59652.0,
-    "current": 52251.0,
-    "m2m": -7401.0,
-    "m2mPct": -12.41
-  },
-  {
-    "clientCode": "001 PolCap",
-    "symbol": "HINDALCO",
-    "quantity": 150.0,
-    "price": 930.0,
-    "ltp": 870.85,
-    "investment": 139500.0,
-    "current": 130628.0,
-    "m2m": -8872.5,
-    "m2mPct": -6.36
+    "current": 40151.0
   },
   {
     "clientCode": "018 PRAKASH",
-    "symbol": "HINDALCO",
-    "quantity": 50.0,
-    "price": 1023.0,
-    "ltp": 870.85,
-    "investment": 51150.0,
-    "current": 43543.0,
-    "m2m": -7607.5,
-    "m2mPct": -14.87
+    "symbol": "CANBK",
+    "quantity": 443.0,
+    "price": 126.69,
+    "ltp": 116.16,
+    "m2m": -4664.79,
+    "m2mPct": -8.31,
+    "investment": 56124.0,
+    "current": 51459.0
   },
   {
-    "clientCode": "014 NANDHAKUMAR",
-    "symbol": "KNRCON",
-    "quantity": 400.0,
-    "price": 122.93,
-    "ltp": 98.48,
-    "investment": 49172.0,
-    "current": 39392.0,
-    "m2m": -9780.0,
-    "m2mPct": -19.89
-  },
-  {
-    "clientCode": "019 SATHISH USA",
-    "symbol": "KNRCON",
-    "quantity": 1000.0,
-    "price": 111.54,
-    "ltp": 98.48,
-    "investment": 111540.0,
-    "current": 98480.0,
-    "m2m": -13060.0,
-    "m2mPct": -11.71
-  },
-  {
-    "clientCode": "016 SATHIS INC",
-    "symbol": "CHOLAHLDNG",
-    "quantity": 48.0,
-    "price": 1504.92,
-    "ltp": 1285.9,
-    "investment": 72236.0,
-    "current": 61723.0,
-    "m2m": -10513.15,
-    "m2mPct": -14.55
+    "clientCode": "003 SANKAR",
+    "symbol": "CEATLTD",
+    "quantity": 22.0,
+    "price": 3348.0,
+    "ltp": 3075.0,
+    "m2m": -6006.0,
+    "m2mPct": -8.15,
+    "investment": 73656.0,
+    "current": 67650.0
   },
   {
     "clientCode": "018 PRAKASH",
     "symbol": "CEATLTD",
     "quantity": 39.0,
     "price": 3454.35,
-    "ltp": 3070.0,
+    "ltp": 3075.0,
+    "m2m": -14794.65,
+    "m2mPct": -10.98,
     "investment": 134720.0,
-    "current": 119730.0,
-    "m2m": -14989.65,
-    "m2mPct": -11.13
+    "current": 119925.0
   },
   {
     "clientCode": "014 NANDHAKUMAR",
+    "symbol": "CEATLTD",
+    "quantity": 10.0,
+    "price": 3540.0,
+    "ltp": 3075.0,
+    "m2m": -4650.0,
+    "m2mPct": -13.14,
+    "investment": 35400.0,
+    "current": 30750.0
+  },
+  {
+    "clientCode": "011 SANTHIYA",
     "symbol": "CHOLAHLDNG",
-    "quantity": 48.0,
-    "price": 1526.0,
-    "ltp": 1285.9,
-    "investment": 73248.0,
-    "current": 61723.0,
-    "m2m": -11524.8,
-    "m2mPct": -15.73
-  },
-  {
-    "clientCode": "001 PolCap",
-    "symbol": "KNRCON",
-    "quantity": 1000.0,
-    "price": 116.65,
-    "ltp": 98.48,
-    "investment": 116650.0,
-    "current": 98480.0,
-    "m2m": -18170.0,
-    "m2mPct": -15.58
-  },
-  {
-    "clientCode": "016 SATHIS INC",
-    "symbol": "MARUTI",
-    "quantity": 5.0,
-    "price": 13800.0,
-    "ltp": 11200.0,
-    "investment": 69000.0,
-    "current": 56000.0,
-    "m2m": -13000.0,
-    "m2mPct": -18.84
-  },
-  {
-    "clientCode": "006 RAJAGOPAL",
-    "symbol": "IRCON",
-    "quantity": 500.0,
-    "price": 131.6,
-    "ltp": 97.68,
-    "investment": 65800.0,
-    "current": 48840.0,
-    "m2m": -16960.0,
-    "m2mPct": -25.78
-  },
-  {
-    "clientCode": "003 SANKAR",
-    "symbol": "CHOLAHLDNG",
-    "quantity": 77.0,
-    "price": 1517.2,
-    "ltp": 1285.9,
-    "investment": 116824.0,
-    "current": 99014.0,
-    "m2m": -17810.1,
-    "m2mPct": -15.25
-  },
-  {
-    "clientCode": "014 NANDHAKUMAR",
-    "symbol": "MARUTI",
-    "quantity": 6.0,
-    "price": 13781.5,
-    "ltp": 11200.0,
-    "investment": 82689.0,
-    "current": 67200.0,
-    "m2m": -15489.0,
-    "m2mPct": -18.73
-  },
-  {
-    "clientCode": "018 PRAKASH",
-    "symbol": "WAAREEENER",
-    "quantity": 45.0,
-    "price": 2737.33,
-    "ltp": 2340.5,
-    "investment": 123180.0,
-    "current": 105323.0,
-    "m2m": -17857.35,
-    "m2mPct": -14.5
-  },
-  {
-    "clientCode": "019 SATHISH USA",
-    "symbol": "HINDALCO",
-    "quantity": 250.0,
-    "price": 960.5,
-    "ltp": 870.85,
-    "investment": 240125.0,
-    "current": 217713.0,
-    "m2m": -22412.5,
-    "m2mPct": -9.33
-  },
-  {
-    "clientCode": "014 NANDHAKUMAR",
-    "symbol": "HGINFRA",
-    "quantity": 100.0,
-    "price": 590.17,
-    "ltp": 383.05,
-    "investment": 59017.0,
-    "current": 38305.0,
-    "m2m": -20712.0,
-    "m2mPct": -35.09
+    "quantity": 12.0,
+    "price": 1354.0,
+    "ltp": 1270.1,
+    "m2m": -1006.8,
+    "m2mPct": -6.2,
+    "investment": 16248.0,
+    "current": 15241.0
   },
   {
     "clientCode": "019 SATHISH USA",
     "symbol": "CHOLAHLDNG",
     "quantity": 200.0,
     "price": 1418.7,
-    "ltp": 1285.9,
+    "ltp": 1270.1,
+    "m2m": -29720.0,
+    "m2mPct": -10.47,
     "investment": 283740.0,
-    "current": 257180.0,
-    "m2m": -26560.0,
-    "m2mPct": -9.36
-  },
-  {
-    "clientCode": "008 ARUNA",
-    "symbol": "IRCON",
-    "quantity": 800.0,
-    "price": 128.46,
-    "ltp": 97.68,
-    "investment": 102768.0,
-    "current": 78144.0,
-    "m2m": -24624.0,
-    "m2mPct": -23.96
+    "current": 254020.0
   },
   {
     "clientCode": "001 PolCap",
     "symbol": "CHOLAHLDNG",
     "quantity": 200.0,
     "price": 1435.0,
-    "ltp": 1285.9,
+    "ltp": 1270.1,
+    "m2m": -32980.0,
+    "m2mPct": -11.49,
     "investment": 287000.0,
-    "current": 257180.0,
-    "m2m": -29820.0,
-    "m2mPct": -10.39
+    "current": 254020.0
   },
   {
-    "clientCode": "014 NANDHAKUMAR",
-    "symbol": "IRCON",
-    "quantity": 800.0,
-    "price": 135.76,
-    "ltp": 97.68,
-    "investment": 108608.0,
-    "current": 78144.0,
-    "m2m": -30464.0,
-    "m2mPct": -28.05
+    "clientCode": "008 ARUNA",
+    "symbol": "CHOLAHLDNG",
+    "quantity": 23.0,
+    "price": 1462.0,
+    "ltp": 1270.1,
+    "m2m": -4413.7,
+    "m2mPct": -13.13,
+    "investment": 33626.0,
+    "current": 29212.0
   },
   {
     "clientCode": "005 SENTHIL",
     "symbol": "CHOLAHLDNG",
     "quantity": 167.0,
     "price": 1509.06,
-    "ltp": 1285.9,
+    "ltp": 1270.1,
+    "m2m": -39906.32,
+    "m2mPct": -15.84,
     "investment": 252013.0,
-    "current": 214745.0,
-    "m2m": -37267.72,
-    "m2mPct": -14.79
+    "current": 212107.0
   },
   {
-    "clientCode": "015 VENKATESH",
-    "symbol": "MARUTI",
-    "quantity": 19.0,
-    "price": 13306.0,
-    "ltp": 11200.0,
-    "investment": 252814.0,
-    "current": 212800.0,
-    "m2m": -40014.0,
-    "m2mPct": -15.83
+    "clientCode": "003 SANKAR",
+    "symbol": "CHOLAHLDNG",
+    "quantity": 77.0,
+    "price": 1517.2,
+    "ltp": 1270.1,
+    "m2m": -19026.7,
+    "m2mPct": -16.29,
+    "investment": 116824.0,
+    "current": 97798.0
   },
   {
-    "clientCode": "001 PolCap",
-    "symbol": "MARUTI",
-    "quantity": 19.0,
-    "price": 13571.42,
-    "ltp": 11200.0,
-    "investment": 257857.0,
-    "current": 212800.0,
-    "m2m": -45056.98,
-    "m2mPct": -17.47
+    "clientCode": "014 NANDHAKUMAR",
+    "symbol": "CHOLAHLDNG",
+    "quantity": 48.0,
+    "price": 1526.0,
+    "ltp": 1270.1,
+    "m2m": -12283.2,
+    "m2mPct": -16.77,
+    "investment": 73248.0,
+    "current": 60965.0
   },
   {
-    "clientCode": "020 SHABARLA",
-    "symbol": "IRCON",
-    "quantity": 1582.0,
-    "price": 131.05,
-    "ltp": 97.68,
-    "investment": 207321.0,
-    "current": 154530.0,
-    "m2m": -52791.34,
-    "m2mPct": -25.46
+    "clientCode": "006 RAJAGOPAL",
+    "symbol": "CHOLAHLDNG",
+    "quantity": 20.0,
+    "price": 1532.5,
+    "ltp": 1270.1,
+    "m2m": -5248.0,
+    "m2mPct": -17.12,
+    "investment": 30650.0,
+    "current": 25402.0
+  },
+  {
+    "clientCode": "016 SATHIS INC",
+    "symbol": "CHOLAHLDNG",
+    "quantity": 48.0,
+    "price": 1553.58,
+    "ltp": 1270.1,
+    "m2m": -13607.04,
+    "m2mPct": -18.25,
+    "investment": 74572.0,
+    "current": 60965.0
   },
   {
     "clientCode": "018 PRAKASH",
     "symbol": "CHOLAHLDNG",
     "quantity": 200.0,
     "price": 1564.32,
-    "ltp": 1285.9,
+    "ltp": 1270.1,
+    "m2m": -58844.0,
+    "m2mPct": -18.81,
     "investment": 312864.0,
-    "current": 257180.0,
-    "m2m": -55684.0,
-    "m2mPct": -17.8
+    "current": 254020.0
+  },
+  {
+    "clientCode": "017 Sasi Kumar",
+    "symbol": "GRSE",
+    "quantity": 10.0,
+    "price": 2500.0,
+    "ltp": 1860.0,
+    "m2m": -6400.0,
+    "m2mPct": -25.6,
+    "investment": 25000.0,
+    "current": 18600.0
+  },
+  {
+    "clientCode": "014 NANDHAKUMAR",
+    "symbol": "HGINFRA",
+    "quantity": 100.0,
+    "price": 590.17,
+    "ltp": 382.8,
+    "m2m": -20737.0,
+    "m2mPct": -35.14,
+    "investment": 59017.0,
+    "current": 38280.0
+  },
+  {
+    "clientCode": "001 PolCap",
+    "symbol": "HINDALCO",
+    "quantity": 150.0,
+    "price": 930.0,
+    "ltp": 869.85,
+    "m2m": -9022.5,
+    "m2mPct": -6.47,
+    "investment": 139500.0,
+    "current": 130478.0
   },
   {
     "clientCode": "019 SATHISH USA",
-    "symbol": "KPITTECH",
-    "quantity": 485.0,
-    "price": 660.0,
-    "ltp": 535.4,
-    "investment": 320100.0,
-    "current": 259669.0,
-    "m2m": -60431.0,
-    "m2mPct": -18.88
+    "symbol": "HINDALCO",
+    "quantity": 250.0,
+    "price": 960.5,
+    "ltp": 869.85,
+    "m2m": -22662.5,
+    "m2mPct": -9.44,
+    "investment": 240125.0,
+    "current": 217463.0
   },
   {
-    "clientCode": "007 SANTHANA",
+    "clientCode": "005 SENTHIL",
+    "symbol": "HINDALCO",
+    "quantity": 60.0,
+    "price": 994.2,
+    "ltp": 869.85,
+    "m2m": -7461.0,
+    "m2mPct": -12.51,
+    "investment": 59652.0,
+    "current": 52191.0
+  },
+  {
+    "clientCode": "018 PRAKASH",
+    "symbol": "HINDALCO",
+    "quantity": 50.0,
+    "price": 1023.0,
+    "ltp": 869.85,
+    "m2m": -7657.5,
+    "m2mPct": -14.97,
+    "investment": 51150.0,
+    "current": 43493.0
+  },
+  {
+    "clientCode": "019 SATHISH USA",
+    "symbol": "INFY",
+    "quantity": 400.0,
+    "price": 1258.0,
+    "ltp": 1153.8,
+    "m2m": -41680.0,
+    "m2mPct": -8.28,
+    "investment": 503200.0,
+    "current": 461520.0
+  },
+  {
+    "clientCode": "008 ARUNA",
     "symbol": "IRCON",
-    "quantity": 2265.0,
-    "price": 130.5,
-    "ltp": 97.68,
-    "investment": 295583.0,
-    "current": 221245.0,
-    "m2m": -74337.3,
-    "m2mPct": -25.15
+    "quantity": 800.0,
+    "price": 128.46,
+    "ltp": 98.35,
+    "m2m": -24088.0,
+    "m2mPct": -23.44,
+    "investment": 102768.0,
+    "current": 78680.0
   },
   {
     "clientCode": "018 PRAKASH",
     "symbol": "IRCON",
     "quantity": 2299.0,
     "price": 130.43,
-    "ltp": 97.68,
+    "ltp": 98.35,
+    "m2m": -73751.92,
+    "m2mPct": -24.6,
     "investment": 299859.0,
-    "current": 224566.0,
-    "m2m": -75292.25,
-    "m2mPct": -25.11
+    "current": 226107.0
+  },
+  {
+    "clientCode": "007 SANTHANA",
+    "symbol": "IRCON",
+    "quantity": 2205.0,
+    "price": 129.87,
+    "ltp": 98.35,
+    "m2m": -69501.6,
+    "m2mPct": -24.27,
+    "investment": 286363.0,
+    "current": 216862.0
+  },
+  {
+    "clientCode": "020 SHABARLA",
+    "symbol": "IRCON",
+    "quantity": 1571.0,
+    "price": 130.47,
+    "ltp": 98.35,
+    "m2m": -50460.52,
+    "m2mPct": -24.62,
+    "investment": 204968.0,
+    "current": 154508.0
+  },
+  {
+    "clientCode": "006 RAJAGOPAL",
+    "symbol": "IRCON",
+    "quantity": 500.0,
+    "price": 131.6,
+    "ltp": 98.35,
+    "m2m": -16625.0,
+    "m2mPct": -25.27,
+    "investment": 65800.0,
+    "current": 49175.0
+  },
+  {
+    "clientCode": "014 NANDHAKUMAR",
+    "symbol": "IRCON",
+    "quantity": 800.0,
+    "price": 135.76,
+    "ltp": 98.35,
+    "m2m": -29928.0,
+    "m2mPct": -27.56,
+    "investment": 108608.0,
+    "current": 78680.0
+  },
+  {
+    "clientCode": "017 Sasi Kumar",
+    "symbol": "JSWCEMENT",
+    "quantity": 375.0,
+    "price": 126.7,
+    "ltp": 116.99,
+    "m2m": -3641.25,
+    "m2mPct": -7.66,
+    "investment": 47513.0,
+    "current": 43871.0
+  },
+  {
+    "clientCode": "006 RAJAGOPAL",
+    "symbol": "JSWCEMENT",
+    "quantity": 150.0,
+    "price": 130.4,
+    "ltp": 116.99,
+    "m2m": -2011.5,
+    "m2mPct": -10.28,
+    "investment": 19560.0,
+    "current": 17549.0
+  },
+  {
+    "clientCode": "016 SATHIS INC",
+    "symbol": "JSWCEMENT",
+    "quantity": 81.0,
+    "price": 130.8,
+    "ltp": 116.99,
+    "m2m": -1118.61,
+    "m2mPct": -10.56,
+    "investment": 10595.0,
+    "current": 9476.0
+  },
+  {
+    "clientCode": "016 SATHIS INC",
+    "symbol": "KNRCON",
+    "quantity": 200.0,
+    "price": 111.44,
+    "ltp": 98.03,
+    "m2m": -2682.0,
+    "m2mPct": -12.03,
+    "investment": 22288.0,
+    "current": 19606.0
+  },
+  {
+    "clientCode": "019 SATHISH USA",
+    "symbol": "KNRCON",
+    "quantity": 1000.0,
+    "price": 111.54,
+    "ltp": 98.03,
+    "m2m": -13510.0,
+    "m2mPct": -12.11,
+    "investment": 111540.0,
+    "current": 98030.0
+  },
+  {
+    "clientCode": "007 SANTHANA",
+    "symbol": "KNRCON",
+    "quantity": 175.0,
+    "price": 110.83,
+    "ltp": 98.03,
+    "m2m": -2240.0,
+    "m2mPct": -11.55,
+    "investment": 19395.0,
+    "current": 17155.0
+  },
+  {
+    "clientCode": "011 SANTHIYA",
+    "symbol": "KNRCON",
+    "quantity": 240.0,
+    "price": 111.87,
+    "ltp": 98.03,
+    "m2m": -3321.6,
+    "m2mPct": -12.37,
+    "investment": 26849.0,
+    "current": 23527.0
+  },
+  {
+    "clientCode": "001 PolCap",
+    "symbol": "KNRCON",
+    "quantity": 1000.0,
+    "price": 116.65,
+    "ltp": 98.03,
+    "m2m": -18620.0,
+    "m2mPct": -15.96,
+    "investment": 116650.0,
+    "current": 98030.0
+  },
+  {
+    "clientCode": "014 NANDHAKUMAR",
+    "symbol": "KNRCON",
+    "quantity": 412.0,
+    "price": 122.93,
+    "ltp": 98.03,
+    "m2m": -10258.8,
+    "m2mPct": -20.26,
+    "investment": 50647.0,
+    "current": 40388.0
+  },
+  {
+    "clientCode": "019 SATHISH USA",
+    "symbol": "KPITTECH",
+    "quantity": 400.0,
+    "price": 647.0,
+    "ltp": 532.65,
+    "m2m": -45740.0,
+    "m2mPct": -17.67,
+    "investment": 258800.0,
+    "current": 213060.0
+  },
+  {
+    "clientCode": "001 PolCap",
+    "symbol": "M&M",
+    "quantity": 40.0,
+    "price": 2912.0,
+    "ltp": 2861.2,
+    "m2m": -2032.0,
+    "m2mPct": -1.74,
+    "investment": 116480.0,
+    "current": 114448.0
+  },
+  {
+    "clientCode": "015 VENKATESH",
+    "symbol": "M&M",
+    "quantity": 21.0,
+    "price": 3002.0,
+    "ltp": 2861.2,
+    "m2m": -2956.8,
+    "m2mPct": -4.69,
+    "investment": 63042.0,
+    "current": 60085.0
+  },
+  {
+    "clientCode": "017 Sasi Kumar",
+    "symbol": "M&M",
+    "quantity": 12.0,
+    "price": 3093.0,
+    "ltp": 2861.2,
+    "m2m": -2781.6,
+    "m2mPct": -7.49,
+    "investment": 37116.0,
+    "current": 34334.0
+  },
+  {
+    "clientCode": "015 VENKATESH",
+    "symbol": "MARUTI",
+    "quantity": 18.0,
+    "price": 13287.0,
+    "ltp": 11230.0,
+    "m2m": -37026.0,
+    "m2mPct": -15.48,
+    "investment": 239166.0,
+    "current": 202140.0
+  },
+  {
+    "clientCode": "001 PolCap",
+    "symbol": "MARUTI",
+    "quantity": 19.0,
+    "price": 13571.42,
+    "ltp": 11230.0,
+    "m2m": -44486.98,
+    "m2mPct": -17.25,
+    "investment": 257857.0,
+    "current": 213370.0
+  },
+  {
+    "clientCode": "011 SANTHIYA",
+    "symbol": "MARUTI",
+    "quantity": 74.0,
+    "price": 13650.0,
+    "ltp": 11230.0,
+    "m2m": -179080.0,
+    "m2mPct": -17.73,
+    "investment": 1010100.0,
+    "current": 831020.0
+  },
+  {
+    "clientCode": "014 NANDHAKUMAR",
+    "symbol": "MARUTI",
+    "quantity": 6.0,
+    "price": 13781.5,
+    "ltp": 11230.0,
+    "m2m": -15309.0,
+    "m2mPct": -18.51,
+    "investment": 82689.0,
+    "current": 67380.0
+  },
+  {
+    "clientCode": "016 SATHIS INC",
+    "symbol": "MARUTI",
+    "quantity": 5.0,
+    "price": 13800.0,
+    "ltp": 11230.0,
+    "m2m": -12850.0,
+    "m2mPct": -18.62,
+    "investment": 69000.0,
+    "current": 56150.0
   },
   {
     "clientCode": "018 PRAKASH",
     "symbol": "MARUTI",
     "quantity": 30.0,
     "price": 13866.33,
-    "ltp": 11200.0,
+    "ltp": 11230.0,
+    "m2m": -79089.9,
+    "m2mPct": -19.01,
     "investment": 415990.0,
-    "current": 336000.0,
-    "m2m": -79989.9,
-    "m2mPct": -19.23
+    "current": 336900.0
   },
   {
     "clientCode": "019 SATHISH USA",
-    "symbol": "INFY",
+    "symbol": "SAIL",
     "quantity": 500.0,
-    "price": 1349.34,
-    "ltp": 1156.65,
-    "investment": 674670.0,
-    "current": 578325.0,
-    "m2m": -96345.0,
-    "m2mPct": -14.28
-  },
-  {
-    "clientCode": "011 SANTHIYA",
-    "symbol": "MARUTI",
-    "quantity": 74.0,
-    "price": 13652.0,
-    "ltp": 11200.0,
-    "investment": 1010248.0,
-    "current": 828800.0,
-    "m2m": -181448.0,
-    "m2mPct": -17.96
+    "price": 172.5,
+    "ltp": 164.34,
+    "m2m": -4080.0,
+    "m2mPct": -4.73,
+    "investment": 86250.0,
+    "current": 82170.0
   }
 ];
 
@@ -1352,9 +1353,10 @@
       // Calculate Aggregate Totals
       const overallM2MPct = totalInvested > 0 ? (totalM2M / totalInvested) * 100 : 0;
 
-      // Update Summary Cards
-      summaryCount.textContent = sorted.length === 1 ? "1 Stock" : `${sorted.length} Stocks`;
-      summaryFilterLabel.textContent = selectedClient === "ALL" ? "All Clients View" : `Client: ${selectedClient}`;
+      // Update Summary Cards (show unique stock count alongside total holding entries)
+      const uniqueStocks = new Set(sorted.map(r => r.symbol)).size;
+      summaryCount.textContent = uniqueStocks === 1 ? "1 Stock" : `${uniqueStocks} Stocks`;
+      summaryFilterLabel.textContent = selectedClient === "ALL" ? `${sorted.length} Holdings (All Clients)` : `Client: ${selectedClient}`;
       summaryTotalInvested.textContent = formatINR(totalInvested);
       summaryCurrentValue.textContent = formatINR(totalCurrent);
       summaryTotalM2M.textContent = formatINR(totalM2M);
