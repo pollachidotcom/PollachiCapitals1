@@ -78,7 +78,7 @@
             Pollachi Capitals
           </span>
           <span class="text-xs text-neutral-400">|</span>
-          <span class="text-xs text-neutral-600 font-medium">Client Portfolio &amp; Wealth Management Portal</span>
+          <span class="text-xs text-neutral-600 font-medium">Client Portfolio &amp; Wealth Portal</span>
         </div>
 
         <!-- Header Tools & 5-Min Timer -->
@@ -97,6 +97,16 @@
               Sync
             </button>
           </div>
+
+          <button 
+            id="totalQBtn" 
+            type="button" 
+            class="text-xs font-bold px-3.5 py-1.5 text-white rounded transition uppercase tracking-wider shadow-sm flex items-center space-x-1.5 hover:opacity-90"
+            style="background-color: #9900ff;"
+            title="Open Total Q Consolidated Sheet View"
+          >
+            <span>Total Q</span>
+          </button>
 
           <button 
             id="authToggleBtn" 
@@ -412,6 +422,124 @@
         </div>
       </section>
 
+    </section>
+
+    <!-- TOTAL Q SHEET VIEW SECTION (Exact Google Sheet "Total Q" Dark & Purple Theme + Heatmap) -->
+    <section id="totalQSection" class="hidden space-y-5">
+      <!-- Top Control & Sheet Link Bar -->
+      <div class="border-2 border-black p-4 rounded-lg bg-black text-white flex flex-wrap items-center justify-between gap-3 no-print">
+        <div class="flex items-center space-x-3">
+          <span class="px-2.5 py-1 text-xs font-extrabold uppercase tracking-wider rounded text-white" style="background-color: #9900ff;">
+            Total Q
+          </span>
+          <div>
+            <h3 class="text-sm sm:text-base font-bold tracking-wide text-white uppercase">
+              Pollachi Capitals — Consolidated Total Q Sheet
+            </h3>
+            <p class="text-[11px] text-neutral-400">
+              Live synchronized with Google Sheet tab <strong class="text-white">'Total Q'</strong> • Red–White–Blue Investment Heatmap
+            </p>
+          </div>
+        </div>
+
+        <div class="flex flex-wrap items-center gap-2">
+          <a 
+            href="https://docs.google.com/spreadsheets/d/10ibgkz8LXZA6VoJWc9krhEQqM669tUBSVcbB4gN_ecY/edit?usp=drivesdk" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            class="px-3 py-1.5 text-xs font-bold uppercase tracking-wider rounded border border-purple-400 text-white hover:bg-purple-950 transition flex items-center space-x-1.5"
+          >
+            <span>Open Google Sheet ('Total Q')</span>
+            <span>↗</span>
+          </a>
+          <button 
+            id="refreshTotalQBtn" 
+            type="button" 
+            class="px-3 py-1.5 text-xs font-bold uppercase tracking-wider rounded text-white transition hover:opacity-90"
+            style="background-color: #9900ff;"
+          >
+            Sync Total Q
+          </button>
+          <button 
+            id="backToClientBtn" 
+            type="button" 
+            class="px-3 py-1.5 text-xs font-bold uppercase tracking-wider rounded bg-white text-black hover:bg-neutral-200 transition"
+          >
+            Back to Client Login
+          </button>
+        </div>
+      </div>
+
+      <!-- Exact Google Sheet "Total Q" Layout: Left Main Table + Right Market Summary Box -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-5 items-start">
+        
+        <!-- Main Total Q Table (B2:F18 exact visual replica) -->
+        <div class="lg:col-span-8 rounded-lg overflow-hidden shadow-xl" style="background-color: #000000; border: 2px solid #9900ff;">
+          <div class="overflow-x-auto" style="background-color: #000000;">
+            <table class="w-full border-collapse select-text" style="background-color: #000000; color: #ffffff; font-family: Arial, 'Inter', sans-serif;">
+              <thead>
+                <tr style="background-color: #9900ff; color: #ffffff;">
+                  <th id="tqSortSymbol" class="py-2.5 px-3 text-center font-bold text-sm sm:text-base border border-[#2a2a2a] cursor-pointer select-none whitespace-nowrap">
+                    <div class="flex items-center justify-between">
+                      <span class="w-3"></span>
+                      <span>Symbol</span>
+                      <svg class="w-3.5 h-3.5 text-white opacity-90 ml-1 shrink-0" viewBox="0 0 16 16" fill="currentColor"><path d="M1 3h14v2H1V3zm3 4h8v2H4V7zm3 4h2v2H7v-2z"/></svg>
+                    </div>
+                  </th>
+                  <th id="tqSortQty" class="py-2.5 px-3 text-center font-bold text-sm sm:text-base border border-[#2a2a2a] cursor-pointer select-none whitespace-nowrap">
+                    <div class="flex items-center justify-between">
+                      <span class="w-3"></span>
+                      <span>Total Quan</span>
+                      <svg class="w-3.5 h-3.5 text-white opacity-90 ml-1 shrink-0" viewBox="0 0 16 16" fill="currentColor"><path d="M1 3h14v2H1V3zm3 4h8v2H4V7zm3 4h2v2H7v-2z"/></svg>
+                    </div>
+                  </th>
+                  <th id="tqSortInv" class="py-2.5 px-3 text-center font-bold text-sm sm:text-base border border-[#2a2a2a] cursor-pointer select-none whitespace-nowrap">
+                    <div class="flex items-center justify-between">
+                      <span class="w-3"></span>
+                      <span>Total INvestm</span>
+                      <svg class="w-3.5 h-3.5 text-white opacity-90 ml-1 shrink-0" viewBox="0 0 16 16" fill="currentColor"><path d="M1 3h14v2H1V3zm3 4h8v2H4V7zm3 4h2v2H7v-2z"/></svg>
+                    </div>
+                  </th>
+                  <th id="tqSortM2M" class="py-2.5 px-3 text-center font-bold text-sm sm:text-base border border-[#2a2a2a] cursor-pointer select-none whitespace-nowrap">
+                    <div class="flex items-center justify-between">
+                      <span class="w-3"></span>
+                      <span>M2M</span>
+                      <svg class="w-3.5 h-3.5 text-white opacity-90 ml-1 shrink-0" viewBox="0 0 16 16" fill="currentColor"><path d="M1 3h14v2H1V3zm3 4h8v2H4V7zm3 4h2v2H7v-2z"/></svg>
+                    </div>
+                  </th>
+                  <th id="tqSortM2MPct" class="py-2.5 px-3 text-center font-bold text-sm sm:text-base border border-[#2a2a2a] cursor-pointer select-none whitespace-nowrap">
+                    <div class="flex items-center justify-between">
+                      <span class="w-3"></span>
+                      <span>M2M %</span>
+                      <svg class="w-3.5 h-3.5 text-white opacity-90 ml-1 shrink-0" viewBox="0 0 16 16" fill="currentColor"><path d="M1 3h14v2H1V3zm3 4h8v2H4V7zm3 4h2v2H7v-2z"/></svg>
+                    </div>
+                  </th>
+                </tr>
+              </thead>
+              <tbody id="totalQTableBody">
+                <!-- Populated dynamically with exact Total Q rows & Red-White-Blue heatmap -->
+              </tbody>
+              <tfoot id="totalQTableFooter">
+                <!-- Total summary footer -->
+              </tfoot>
+            </table>
+          </div>
+        </div>
+
+        <!-- Side Summary Metrics Panel from Total Q Sheet (H2:I17) -->
+        <div class="lg:col-span-4 rounded-lg overflow-hidden shadow-xl" style="background-color: #000000; border: 2px solid #9900ff; font-family: Arial, 'Inter', sans-serif;">
+          <div class="px-4 py-2.5 font-bold text-sm uppercase tracking-wider text-white flex items-center justify-between" style="background-color: #9900ff;">
+            <span>Total Q — Live Market &amp; M2M</span>
+            <span id="tqUpdatedBadge" class="text-[11px] font-mono bg-black/40 px-2 py-0.5 rounded">Oct 26, 03:44 pm</span>
+          </div>
+          <table class="w-full text-sm border-collapse" style="background-color: #000000; color: #ffffff;">
+            <tbody id="totalQSideMetricsBody" class="divide-y divide-[#222222]">
+              <!-- Populated dynamically from Total Q sheet side panel -->
+            </tbody>
+          </table>
+        </div>
+
+      </div>
     </section>
 
   </main>
@@ -1047,6 +1175,48 @@
     // Background Live Sync URL for your Pollachi Capitals Google Sheet ('Holdings' tab)
     // Works automatically once you set File > Share > Publish to web (or Share > Anyone with link can view)
     const LIVE_SHEET_CSV_URL = "https://docs.google.com/spreadsheets/d/10ibgkz8LXZA6VoJWc9krhEQqM669tUBSVcbB4gN_ecY/gviz/tq?tqx=out:csv&sheet=Holdings";
+    const LIVE_TOTAL_Q_CSV_URL = "https://docs.google.com/spreadsheets/d/10ibgkz8LXZA6VoJWc9krhEQqM669tUBSVcbB4gN_ecY/gviz/tq?tqx=out:csv&sheet=Total%20Q";
+    const LIVE_TOTAL_Q_FALLBACK_URL = "https://docs.google.com/spreadsheets/d/10ibgkz8LXZA6VoJWc9krhEQqM669tUBSVcbB4gN_ecY/gviz/tq?tqx=out:csv&sheet=Totla%20Q";
+
+    // Embedded 'Total Q' Sheet Data (Synchronized with Pollachi Capitals 'Total Q' tab)
+    const initialTotalQData = [
+      { symbol: "MARUTI", quantity: 152, investment: 2074802, m2m: -369362, m2mPct: -5.22, heatmapColor: "#ff0000" },
+      { symbol: "CHOLAHLDNG", quantity: 995, investment: 1480785, m2m: -229672, m2mPct: -3.25, heatmapColor: "#ff5252" },
+      { symbol: "IRCON", quantity: 8175, investment: 1068366, m2m: -271304, m2mPct: -3.84, heatmapColor: "#ff8a8a" },
+      { symbol: "INFY", quantity: 400, investment: 503200, m2m: -36800, m2mPct: -0.52, heatmapColor: "#ffcccc" },
+      { symbol: "HINDALCO", quantity: 510, investment: 490427, m2m: -38746, m2mPct: -0.55, heatmapColor: "#ffe2e2" },
+      { symbol: "KNRCON", quantity: 3027, investment: 347369, m2m: -51268, m2mPct: -0.72, heatmapColor: "#fff3f3" },
+      { symbol: "KPITTECH", quantity: 400, investment: 258800, m2m: -44180, m2mPct: -0.62, heatmapColor: "#fffafa" },
+      { symbol: "M&M", quantity: 73, investment: 216638, m2m: -8362, m2mPct: -0.12, heatmapColor: "#ffffff" },
+      { symbol: "CEATLTD", quantity: 71, investment: 243776, m2m: -21475, m2mPct: -0.30, heatmapColor: "#ffffff" },
+      { symbol: "WAAREEENER", quantity: 0, investment: 0, m2m: 0, m2mPct: 0.00, heatmapColor: "#7676ff" },
+      { symbol: "JSWCEMENT", quantity: 606, investment: 77667, m2m: -6038, m2mPct: -0.09, heatmapColor: "#3838ff" },
+      { symbol: "HGINFRA", quantity: 100, investment: 59017, m2m: -21217, m2mPct: -0.30, heatmapColor: "#2424ff" },
+      { symbol: "CANBK", quantity: 443, investment: 56124, m2m: -4421, m2mPct: -0.06, heatmapColor: "#1e1eff" },
+      { symbol: "ASHOKLEY", quantity: 277, investment: 44600, m2m: -5293, m2mPct: -0.07, heatmapColor: "#1212ff" },
+      { symbol: "ACC", quantity: 30, investment: 40518, m2m: -5568, m2mPct: -0.08, heatmapColor: "#0b0bff" },
+      { symbol: "GRSE", quantity: 10, investment: 25000, m2m: -6212, m2mPct: -0.09, heatmapColor: "#0000ff" }
+    ];
+
+    const initialTotalQMeta = {
+      updatedAt: "Oct 26, 03:44 pm",
+      totalM2M: "-11,21,268",
+      totalM2MPct: "-15.85%",
+      todayM2M: "-1,240",
+      todayM2MPct: "-0.02%",
+      nifty50: "22,753",
+      todayChange: "153",
+      todayPct: "0.68",
+      open: "22,524",
+      high: "22,753",
+      low: "22,387",
+      prevClose: "22,600",
+      comparedToMarket: "▼ Down (-0.70%)"
+    };
+
+    let currentTotalQDataset = [...initialTotalQData];
+    let currentTotalQMeta = { ...initialTotalQMeta };
+    let totalQSortState = "DEFAULT";
 
     let currentDataset = [...initialSheetData];
     // Start strictly unauthenticated so no client details open without a PIN
@@ -1211,6 +1381,7 @@
       secondsRemaining = REFRESH_INTERVAL_SECONDS;
       countdownTimer.textContent = formatTime(secondsRemaining);
 
+      syncLiveTotalQSheet(true);
       syncLiveGoogleSheet(false).then(() => {
         if (authenticatedClient) {
           renderFilteredData();
@@ -1458,6 +1629,9 @@
         authMessage.classList.remove("hidden");
 
         setTimeout(() => {
+          if (typeof totalQSection !== "undefined" && totalQSection) {
+            totalQSection.classList.add("hidden");
+          }
           loginSection.classList.add("hidden");
           portfolioDashboard.classList.remove("hidden");
           pinInput.value = "";
@@ -1484,6 +1658,9 @@
     // Lock Session / Switch Client
     function lockSession() {
       authenticatedClient = null;
+      if (typeof totalQSection !== "undefined" && totalQSection) {
+        totalQSection.classList.add("hidden");
+      }
       portfolioDashboard.classList.add("hidden");
       loginSection.classList.remove("hidden");
       sheetTableBody.innerHTML = "";
@@ -1493,6 +1670,283 @@
       loginSection.scrollIntoView({ behavior: "smooth" });
       pinInput.focus();
     }
+
+    // --- TOTAL Q VIEW LOGIC & GOOGLE SHEETS 3-COLOR SCALE HEATMAP ---
+    const totalQBtn = document.getElementById("totalQBtn");
+    const totalQSection = document.getElementById("totalQSection");
+    const totalQTableBody = document.getElementById("totalQTableBody");
+    const totalQTableFooter = document.getElementById("totalQTableFooter");
+    const totalQSideMetricsBody = document.getElementById("totalQSideMetricsBody");
+    const tqUpdatedBadge = document.getElementById("tqUpdatedBadge");
+    const refreshTotalQBtn = document.getElementById("refreshTotalQBtn");
+    const backToClientBtn = document.getElementById("backToClientBtn");
+
+    const tqSortSymbol = document.getElementById("tqSortSymbol");
+    const tqSortQty = document.getElementById("tqSortQty");
+    const tqSortInv = document.getElementById("tqSortInv");
+    const tqSortM2M = document.getElementById("tqSortM2M");
+    const tqSortM2MPct = document.getElementById("tqSortM2MPct");
+
+    // Compute exact Google Sheets Red-White-Blue conditional format color for Total INvestm
+    function computeTotalQHeatmapColor(val, allValues) {
+      const nonZero = allValues.filter(v => v > 0).sort((a, b) => a - b);
+      if (nonZero.length === 0) return "#ffffff";
+      const minVal = nonZero[0];
+      const maxVal = nonZero[nonZero.length - 1];
+      // Median (50th percentile) is white (#ffffff)
+      const midIdx = Math.floor(nonZero.length / 2);
+      const midVal = nonZero.length % 2 === 0
+        ? (nonZero[midIdx - 1] + nonZero[midIdx]) / 2
+        : nonZero[midIdx];
+
+      if (val >= midVal) {
+        const ratio = maxVal > midVal ? Math.min(1, Math.max(0, (val - midVal) / (maxVal - midVal))) : 0;
+        // White (255,255,255) -> Pure Red (255,0,0)
+        const gb = Math.round(255 * (1 - ratio));
+        return `rgb(255, ${gb}, ${gb})`;
+      } else {
+        const ratio = midVal > minVal ? Math.min(1, Math.max(0, (val - minVal) / (midVal - minVal))) : 0;
+        // Pure Blue (0,0,255) -> White (255,255,255)
+        const rg = Math.round(255 * ratio);
+        return `rgb(${rg}, ${rg}, 255)`;
+      }
+    }
+
+    function formatPlainINR(val) {
+      const num = Math.round(Number(val) || 0);
+      const sign = num < 0 ? "-" : "";
+      return sign + Math.abs(num).toLocaleString("en-IN");
+    }
+
+    function renderTotalQView() {
+      if (!totalQTableBody) return;
+
+      let rows = [...currentTotalQDataset];
+      if (totalQSortState === "SYM_ASC") rows.sort((a, b) => a.symbol.localeCompare(b.symbol));
+      else if (totalQSortState === "SYM_DESC") rows.sort((a, b) => b.symbol.localeCompare(a.symbol));
+      else if (totalQSortState === "QTY_DESC") rows.sort((a, b) => b.quantity - a.quantity);
+      else if (totalQSortState === "QTY_ASC") rows.sort((a, b) => a.quantity - b.quantity);
+      else if (totalQSortState === "INV_DESC") rows.sort((a, b) => b.investment - a.investment);
+      else if (totalQSortState === "INV_ASC") rows.sort((a, b) => a.investment - b.investment);
+      else if (totalQSortState === "M2M_DESC") rows.sort((a, b) => b.m2m - a.m2m);
+      else if (totalQSortState === "M2M_ASC") rows.sort((a, b) => a.m2m - b.m2m);
+      else if (totalQSortState === "M2MPCT_DESC") rows.sort((a, b) => b.m2mPct - a.m2mPct);
+      else if (totalQSortState === "M2MPCT_ASC") rows.sort((a, b) => a.m2mPct - b.m2mPct);
+
+      const allInvestments = currentTotalQDataset.map(r => r.investment);
+      totalQTableBody.innerHTML = "";
+
+      let sumQty = 0;
+      let sumInv = 0;
+      let sumM2M = 0;
+
+      rows.forEach((r) => {
+        sumQty += r.quantity;
+        sumInv += r.investment;
+        sumM2M += r.m2m;
+
+        const bgHeat = r.heatmapColor || computeTotalQHeatmapColor(r.investment, allInvestments);
+        const tr = document.createElement("tr");
+        tr.style.backgroundColor = "#000000";
+        tr.className = "border-b border-[#1f1f1f] hover:bg-[#111111] transition";
+
+        tr.innerHTML = `
+          <td class="py-1.5 px-3 text-left font-medium text-sm sm:text-[15px] text-white border-r border-[#1f1f1f] whitespace-nowrap">${r.symbol}</td>
+          <td class="py-1.5 px-3 text-center font-medium text-sm sm:text-[15px] text-white border-r border-[#1f1f1f] whitespace-nowrap">${r.quantity}</td>
+          <td class="py-1.5 px-3 text-right font-medium text-sm sm:text-[15px] border-r border-[#1f1f1f] whitespace-nowrap" style="background-color: ${bgHeat}; color: #3e0e00; font-weight: 600;">${formatPlainINR(r.investment)}</td>
+          <td class="py-1.5 px-3 text-right font-medium text-sm sm:text-[15px] text-white border-r border-[#1f1f1f] whitespace-nowrap">${formatPlainINR(r.m2m)}</td>
+          <td class="py-1.5 px-3 text-center font-medium text-sm sm:text-[15px] text-white whitespace-nowrap">${Number(r.m2mPct).toFixed(2)}</td>
+        `;
+        totalQTableBody.appendChild(tr);
+      });
+
+      const totalPct = sumInv > 0 ? (sumM2M / sumInv) * 100 : 0;
+      totalQTableFooter.innerHTML = `
+        <tr style="background-color: #141414; color: #ffffff; border-top: 2px solid #9900ff;" class="font-bold text-sm">
+          <td class="py-2.5 px-3 text-left uppercase tracking-wider" style="color: #d896ff;">Total (${rows.length})</td>
+          <td class="py-2.5 px-3 text-center">${sumQty.toLocaleString("en-IN")}</td>
+          <td class="py-2.5 px-3 text-right" style="color: #ffeb3b;">₹${formatPlainINR(sumInv)}</td>
+          <td class="py-2.5 px-3 text-right" style="color: ${sumM2M < 0 ? '#ff6b6b' : '#4ade80'};">₹${formatPlainINR(sumM2M)}</td>
+          <td class="py-2.5 px-3 text-center">${totalPct.toFixed(2)}%</td>
+        </tr>
+      `;
+
+      // Render Side Summary Metrics Panel
+      if (tqUpdatedBadge) {
+        tqUpdatedBadge.textContent = currentTotalQMeta.updatedAt || "Live";
+      }
+      if (totalQSideMetricsBody) {
+        const metricsRows = [
+          { label: "Updated at", value: currentTotalQMeta.updatedAt, color: "#a855f7" },
+          { label: "Total M2M", value: currentTotalQMeta.totalM2M, color: "#ffeb3b", bold: true },
+          { label: "Total M2M %", value: currentTotalQMeta.totalM2MPct, color: "#ffeb3b", bold: true },
+          { label: "Today M2M", value: currentTotalQMeta.todayM2M, color: "#ffffff" },
+          { label: "Today M2M %", value: currentTotalQMeta.todayM2MPct, color: "#ffffff" },
+          { label: "NIFTY50", value: currentTotalQMeta.nifty50, color: "#38bdf8", bold: true },
+          { label: "Today Change", value: currentTotalQMeta.todayChange, color: "#4ade80" },
+          { label: "Today %", value: currentTotalQMeta.todayPct + "%", color: "#4ade80" },
+          { label: "Open", value: currentTotalQMeta.open, color: "#d4d4d4" },
+          { label: "High", value: currentTotalQMeta.high, color: "#d4d4d4" },
+          { label: "Low", value: currentTotalQMeta.low, color: "#d4d4d4" },
+          { label: "Previous Close", value: currentTotalQMeta.prevClose, color: "#d4d4d4" },
+          { label: "Compared to Market", value: currentTotalQMeta.comparedToMarket, color: "#f87171", bold: true }
+        ];
+        totalQSideMetricsBody.innerHTML = metricsRows.map(m => `
+          <tr class="border-b border-[#1f1f1f] hover:bg-[#111111]">
+            <td class="py-2 px-4 text-xs sm:text-sm font-medium text-neutral-300">${m.label}</td>
+            <td class="py-2 px-4 text-xs sm:text-sm text-right ${m.bold ? 'font-bold' : 'font-medium'}" style="color: ${m.color};">${m.value}</td>
+          </tr>
+        `).join("");
+      }
+    }
+
+    async function syncLiveTotalQSheet(silent = true) {
+      const urlsToTry = [LIVE_TOTAL_Q_CSV_URL, LIVE_TOTAL_Q_FALLBACK_URL];
+      for (const url of urlsToTry) {
+        try {
+          const res = await fetch(url, { cache: "no-store" });
+          if (!res.ok) continue;
+          const csvText = await res.text();
+          const lines = csvText.trim().split(/\r?\n/);
+          if (lines.length < 2) continue;
+
+          const parsedRows = [];
+          const metaMap = {};
+
+          for (let i = 0; i < lines.length; i++) {
+            const cols = parseCSVLine(lines[i]);
+            // Check side panel metrics in cols 7 & 8 (H & I)
+            if (cols.length >= 9 && cols[7]) {
+              const key = cols[7].trim();
+              const val = cols[8].trim();
+              if (key && val) metaMap[key.toLowerCase()] = val;
+            }
+            // Check table rows in cols 1..5 (B..F), skipping header row 'Symbol'
+            if (cols.length >= 6) {
+              const sym = cols[1].trim();
+              if (sym && sym.toUpperCase() !== "SYMBOL") {
+                const qty = parseFloat(cols[2].replace(/,/g, "")) || 0;
+                const inv = parseFloat(cols[3].replace(/,/g, "")) || 0;
+                const m2m = parseFloat(cols[4].replace(/,/g, "")) || 0;
+                const m2mPct = parseFloat(cols[5].replace(/,/g, "").replace("%", "")) || 0;
+                parsedRows.push({
+                  symbol: sym,
+                  quantity: qty,
+                  investment: inv,
+                  m2m: m2m,
+                  m2mPct: m2mPct
+                });
+              }
+            }
+          }
+
+          if (parsedRows.length > 0) {
+            const allInv = parsedRows.map(r => r.investment);
+            parsedRows.forEach(r => {
+              r.heatmapColor = computeTotalQHeatmapColor(r.investment, allInv);
+            });
+            currentTotalQDataset = parsedRows;
+
+            if (metaMap["updated at"]) currentTotalQMeta.updatedAt = metaMap["updated at"];
+            if (metaMap["total m2m"]) currentTotalQMeta.totalM2M = metaMap["total m2m"];
+            if (metaMap["total m2m %"]) currentTotalQMeta.totalM2MPct = metaMap["total m2m %"];
+            if (metaMap["today m2m"]) currentTotalQMeta.todayM2M = metaMap["today m2m"];
+            if (metaMap["today m2m %"]) currentTotalQMeta.todayM2MPct = metaMap["today m2m %"];
+            if (metaMap["nifty50"]) currentTotalQMeta.nifty50 = metaMap["nifty50"];
+            if (metaMap["today change"]) currentTotalQMeta.todayChange = metaMap["today change"];
+            if (metaMap["today %"]) currentTotalQMeta.todayPct = metaMap["today %"];
+            if (metaMap["open"]) currentTotalQMeta.open = metaMap["open"];
+            if (metaMap["high"]) currentTotalQMeta.high = metaMap["high"];
+            if (metaMap["low"]) currentTotalQMeta.low = metaMap["low"];
+            if (metaMap["previous close"]) currentTotalQMeta.prevClose = metaMap["previous close"];
+            if (metaMap["compared to market"]) currentTotalQMeta.comparedToMarket = metaMap["compared to market"];
+
+            renderTotalQView();
+            if (!silent) {
+              showToast("Total Q synchronized live from Google Sheet.");
+            }
+            return;
+          }
+        } catch (err) {
+          // Try next URL or fallback to embedded Total Q dataset
+        }
+      }
+      renderTotalQView();
+    }
+
+    function openTotalQView() {
+      loginSection.classList.add("hidden");
+      portfolioDashboard.classList.add("hidden");
+      totalQSection.classList.remove("hidden");
+      renderTotalQView();
+      syncLiveTotalQSheet(true);
+      totalQSection.scrollIntoView({ behavior: "smooth" });
+    }
+
+    if (totalQBtn) {
+      totalQBtn.addEventListener("click", () => {
+        if (!totalQSection.classList.contains("hidden")) {
+          // If already open, re-sync and scroll to it
+          syncLiveTotalQSheet(false);
+        } else {
+          openTotalQView();
+          showToast("Viewing 'Total Q' consolidated sheet.");
+        }
+      });
+    }
+
+    if (refreshTotalQBtn) {
+      refreshTotalQBtn.addEventListener("click", () => {
+        syncLiveTotalQSheet(false);
+      });
+    }
+
+    if (backToClientBtn) {
+      backToClientBtn.addEventListener("click", () => {
+        totalQSection.classList.add("hidden");
+        if (authenticatedClient) {
+          portfolioDashboard.classList.remove("hidden");
+        } else {
+          loginSection.classList.remove("hidden");
+        }
+      });
+    }
+
+    // Sort handlers on Total Q column headers
+    if (tqSortSymbol) {
+      tqSortSymbol.addEventListener("click", () => {
+        totalQSortState = totalQSortState === "SYM_ASC" ? "SYM_DESC" : "SYM_ASC";
+        renderTotalQView();
+      });
+    }
+    if (tqSortQty) {
+      tqSortQty.addEventListener("click", () => {
+        totalQSortState = totalQSortState === "QTY_DESC" ? "QTY_ASC" : "QTY_DESC";
+        renderTotalQView();
+      });
+    }
+    if (tqSortInv) {
+      tqSortInv.addEventListener("click", () => {
+        totalQSortState = totalQSortState === "INV_DESC" ? "INV_ASC" : "INV_DESC";
+        renderTotalQView();
+      });
+    }
+    if (tqSortM2M) {
+      tqSortM2M.addEventListener("click", () => {
+        totalQSortState = totalQSortState === "M2M_DESC" ? "M2M_ASC" : "M2M_DESC";
+        renderTotalQView();
+      });
+    }
+    if (tqSortM2MPct) {
+      tqSortM2MPct.addEventListener("click", () => {
+        totalQSortState = totalQSortState === "M2MPCT_DESC" ? "M2MPCT_ASC" : "M2MPCT_DESC";
+        renderTotalQView();
+      });
+    }
+
+    // Initial background sync for Total Q
+    renderTotalQView();
+    syncLiveTotalQSheet(true);
 
     lockSessionBtn.addEventListener("click", () => {
       lockSession();
