@@ -74,11 +74,11 @@
       <div class="max-w-5xl mx-auto px-4 py-2.5 flex flex-wrap items-center justify-between gap-3">
         <div class="flex items-center space-x-2">
           <span class="inline-block w-2 h-2 rounded-full bg-purple-800"></span>
-          <span class="text-xs font-bold uppercase tracking-wider text-neutral-800" style="font-family: 'Orbitron', sans-serif; font-style: italic;">
-            Pollachi Capitals
+          <span class="text-xs font-bold tracking-wider text-neutral-800" style="font-family: 'Orbitron', sans-serif; font-style: italic;">
+            Start Your Investment Now
           </span>
           <span class="text-xs text-neutral-400">|</span>
-          <span class="text-xs text-neutral-600 font-medium">Client Portfolio &amp; Wealth Portal</span>
+          <span class="text-xs text-neutral-600 font-medium">Client Portfolio &amp; Wealth Management Portal</span>
         </div>
 
         <!-- Header Tools & 5-Min Timer -->
@@ -102,10 +102,10 @@
             id="totalQBtn" 
             type="button" 
             class="text-xs font-bold px-3.5 py-1.5 text-white rounded transition uppercase tracking-wider shadow-sm flex items-center space-x-1.5 hover:opacity-90"
-            style="background-color: #9900ff;"
+            style="background-color: green;"
             title="Open Total Q Consolidated Sheet View"
           >
-            <span>Total Q</span>
+            <span>Today MTM</span>
           </button>
 
           <button 
@@ -130,7 +130,7 @@
           Partner Portal
         </div>
         <h2 class="text-xl sm:text-2xl font-bold tracking-tight">
-          Dear partner Pollachi Capitals welcomes you to wealth creation journey
+          Dear partner, Pollachi Capitals welcomes you to the journey of wealth creation.
         </h2>
         <p class="text-sm text-neutral-600">
           Your portfolio data is synchronized directly from your Google Sheet with an automated 5-minute background refresh. Select your Client Code and enter your 4-digit PIN below to view your holdings.
@@ -434,22 +434,22 @@
           </span>
           <div>
             <h3 class="text-sm sm:text-base font-bold tracking-wide text-white uppercase">
-              Pollachi Capitals — Consolidated Total Q Sheet
+              Pollachi Capitals — Consolidated Total Quantity
             </h3>
             <p class="text-[11px] text-neutral-400">
-              Live synchronized with Google Sheet tab <strong class="text-white">'Total Q'</strong> • Red–White–Blue Investment Heatmap
+              Live synchronized with delayed data <strong class="text-white">'Total Q'</strong> • Red–White–Blue Investment Heatmap
             </p>
           </div>
         </div>
 
         <div class="flex flex-wrap items-center gap-2">
           <a 
-            href="https://docs.google.com/spreadsheets/d/10ibgkz8LXZA6VoJWc9krhEQqM669tUBSVcbB4gN_ecY/edit?usp=drivesdk" 
+            href="https://www.nseindia.com/index-tracker/NIFTY%2050/" 
             target="_blank" 
             rel="noopener noreferrer"
             class="px-3 py-1.5 text-xs font-bold uppercase tracking-wider rounded border border-purple-400 text-white hover:bg-purple-950 transition flex items-center space-x-1.5"
           >
-            <span>Open Google Sheet ('Total Q')</span>
+            <span>Market Today (NSE)</span>
             <span>↗</span>
           </a>
           <button 
@@ -458,7 +458,7 @@
             class="px-3 py-1.5 text-xs font-bold uppercase tracking-wider rounded text-white transition hover:opacity-90"
             style="background-color: #9900ff;"
           >
-            Sync Total Q
+            Refresh Now
           </button>
           <button 
             id="backToClientBtn" 
@@ -1890,7 +1890,7 @@
           syncLiveTotalQSheet(false);
         } else {
           openTotalQView();
-          showToast("Viewing 'Total Q' consolidated sheet.");
+          showToast("Viewing Consolidated Report");
         }
       });
     }
